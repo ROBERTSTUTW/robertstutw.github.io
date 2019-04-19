@@ -7,7 +7,7 @@ function doGet(e){
   }
 
   var nowDatetime = new Date().toLocaleString();
-  userProperties.setProperty('temperatureText', nowDatetime  + "¨Æ¬G¸ê°T" + temperature);
+  userProperties.setProperty('temperatureText', nowDatetime  + "accident site äº‹æ•…è³‡è¨Š" + temperature);
   
   var returnText = temperature + " OK";
   var textOutput = ContentService.createTextOutput(returnText)
@@ -17,7 +17,7 @@ function doGet(e){
 function doPost(e) {
   var msg = JSON.parse(e.postData.contents);
 
-  // ¨ú¥X replayToken ©M¨Ï¥ÎªÌ°e¥Xªº°T®§¤å¦r
+  // å–å‡º replayToken å’Œä½¿ç”¨è€…é€å‡ºçš„è¨Šæ¯æ–‡å­—
   var replyToken = msg.events[0].replyToken;
   var userMessage = msg.events[0].message.text;
 
@@ -26,10 +26,10 @@ function doPost(e) {
   }
 
   if (typeof keyWords === 'undefined') {
-    var keyWords = ["¦aÂI", "¨Æ¬G", "¨Æ¬G¸ê°T"];
+    var keyWords = ["site", "accident","åœ°é»", "äº‹æ•…", "äº‹æ•…è³‡è¨Š"];
   }
   else {
-    keyWords = keyWords.concat(["¦aÂI", "¨Æ¬G", "¨Æ¬G¸ê°T"]);
+    keyWords = keyWords.concat(["åœ°é»", "äº‹æ•…", "äº‹æ•…è³‡è¨Š"]);
   }
   
   var returnText;
@@ -50,7 +50,7 @@ function doPost(e) {
       returnText =  temperatureText;
     }
     else {
-      returnText = "©êºp§ÚµLªk¨ú±o¨Æ¬G¸ê°T";
+      returnText = "æŠ±æ­‰æˆ‘ç„¡æ³•å–å¾—äº‹æ•…è³‡è¨Š";
     }
   }
   else {
@@ -77,9 +77,9 @@ function doPost(e) {
 
 function getMisunderstandWords() {
   var _misunderstandWords = [
-    "¤£¦n·N«ä¡A§ÚµLªk²z¸Ñ±zªº»İ¨D",
-    "¦A»¡©ú¥Õ¤@ÂI¦n¶Ü¡H§Ú¥u¬O¤@­Ó¤£¤ÓÀ´¨Æªº baby ¾÷¾¹¤H",
-    "§Ú¤£À´±zªº·N«ä¡A©êºp§Ú·|¥[±j°V½mªº"
+    "ä¸å¥½æ„æ€ï¼Œæˆ‘ç„¡æ³•ç†è§£æ‚¨çš„éœ€æ±‚",
+    "å†èªªæ˜ç™½ä¸€é»å¥½å—ï¼Ÿæˆ‘åªæ˜¯ä¸€å€‹ä¸å¤ªæ‡‚äº‹çš„ baby æ©Ÿå™¨äºº",
+    "æˆ‘ä¸æ‡‚æ‚¨çš„æ„æ€ï¼ŒæŠ±æ­‰æˆ‘æœƒåŠ å¼·è¨“ç·´çš„"
   ];
   
   if (typeof misunderstandWords === 'undefined') {
