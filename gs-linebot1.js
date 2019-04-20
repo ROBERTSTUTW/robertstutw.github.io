@@ -7,7 +7,7 @@ function doGet(e){
   }
 
   var nowDatetime = new Date().toLocaleString();
-  userProperties.setProperty('temperatureText', nowDatetime  + "\naccident site" + temperature);
+  userProperties.setProperty('temperatureText', nowDatetime  + "\naccident site:\n" + temperature);
   
   var returnText = temperature + " OK";
   var textOutput = ContentService.createTextOutput(returnText)
